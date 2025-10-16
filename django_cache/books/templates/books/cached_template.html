@@ -1,0 +1,16 @@
+{% load cache %}
+
+<h1>Books</h1>
+
+{% cache 60 books_key %}
+
+{% for book in books %}
+    <p>{{ book.book_data.title }} by <b>
+    {% for author in book.book_data.authors.all %}
+        {{ author }},
+    {% endfor %}
+    </b>
+    </p>
+{% endfor %}
+
+{% endcache %}
