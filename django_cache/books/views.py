@@ -48,7 +48,6 @@ def another_view_using_cached_fragment(request):
 
 from django.core.cache import cache
 
-
 def fine_grained_cache(request):
     cache_key = "books_cache"
 
@@ -58,13 +57,11 @@ def fine_grained_cache(request):
     # Check if there is data already
     if cached_data is None:
         books = Book.objects.all()
-        # send data to the cache if it's empty
-        print("Set data")
+        # send data to the cache
         cache.set(cache_key, books, timeout=45)
     else:
-
-        print("Fetched data")
         books = cached_data
+        cache.delete(cache_key)
 
     return render(
         request,
