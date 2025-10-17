@@ -8,7 +8,7 @@ from functools import lru_cache
 # This means that when the cache is full, the least recently used items are discarded
 # This prevents the cache from growing indefinitely
 
-@lru_cache(maxsize=16)
+@lru_cache(maxsize=8)
 def fib(n):
     if n < 2:
         return n

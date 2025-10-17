@@ -61,7 +61,6 @@ def fine_grained_cache(request):
         cache.set(cache_key, books, timeout=45)
     else:
         books = cached_data
-        cache.delete(cache_key)
 
     return render(
         request,

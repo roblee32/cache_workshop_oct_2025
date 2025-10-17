@@ -1,8 +1,6 @@
 from time import perf_counter
 from functools import cache
 
-
-
 # cache stores the answer for each input
 # so it doesn't have to be recalculated
 # answers it's already calculated
